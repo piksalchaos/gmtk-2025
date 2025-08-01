@@ -7,13 +7,12 @@ const SPEED := 250
 var is_started := false
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("control_skater"):
-		if not is_started:
-			is_started = true
-		else:
-			pass
+	if event.is_action_pressed("control_skater") and not is_started:
+		is_started = true
 
-func _physics_process(delta: float) -> void:
-	if is_started:
-		velocity = Vector2.RIGHT.rotated(direction_angle) * SPEED
+func _physics_process(_delta: float) -> void:
+	if not is_started: return
+	
+	velocity = Vector2.RIGHT.rotated(direction_angle) * SPEED
+	
 	move_and_slide()
