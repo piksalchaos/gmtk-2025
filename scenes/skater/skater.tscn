@@ -1,25 +1,24 @@
 [gd_scene load_steps=6 format=3 uid="uid://phpgl5kxor52"]
 
-[ext_resource type="Script" uid="uid://cdhlnc4twt1hu" path="res://scenes/skater.gd" id="1_gn2w7"]
+[ext_resource type="Script" uid="uid://cdhlnc4twt1hu" path="res://scenes/skater/skater.gd" id="1_gn2w7"]
 [ext_resource type="Texture2D" uid="uid://0xix8u8gosfe" path="res://assets/images/skater.png" id="1_phvop"]
-[ext_resource type="Script" uid="uid://cexiveg4w4xnh" path="res://scenes/hook_detector.gd" id="3_3xg2h"]
+[ext_resource type="Script" uid="uid://cexiveg4w4xnh" path="res://scenes/skater/hook_detector.gd" id="3_3xg2h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3xg2h"]
-radius = 22.0907
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gn2w7"]
-radius = 300.0
+radius = 220.0
 
 [node name="Skater" type="CharacterBody2D"]
 script = ExtResource("1_gn2w7")
 
 [node name="DirectionArrow" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 50, 0)
-width = 5.0
+width = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, 4)
-scale = Vector2(0.3, 0.25)
+position = Vector2(0, 2)
+scale = Vector2(0.15, 0.125)
 texture = ExtResource("1_phvop")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -29,7 +28,11 @@ shape = SubResource("CircleShape2D_3xg2h")
 script = ExtResource("3_3xg2h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HookDetector"]
+position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_gn2w7")
 
 [node name="HookConnector" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 0)
+
+[connection signal="body_entered" from="HookDetector" to="HookDetector" method="_on_body_entered"]
+[connection signal="body_exited" from="HookDetector" to="HookDetector" method="_on_body_exited"]

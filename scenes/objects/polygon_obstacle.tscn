@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5ldp75afd28g"]
+
+[ext_resource type="Script" uid="uid://1fcewbnrj3as" path="res://scenes/objects/polygon_obstacle.gd" id="1_1ex5x"]
+
+[node name="PolygonObstacle" type="StaticBody2D" groups=["danger"]]
+script = ExtResource("1_1ex5x")

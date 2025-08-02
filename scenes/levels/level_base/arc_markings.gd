@@ -3,6 +3,8 @@ class_name ArcMarkings extends Node2D
 const LINE_WIDTH := 2.0
 @export var arcs: Array[Arc]
 
+signal shape_completed
+
 func add_arc(arc: Arc):
 	arcs.append(arc)
 
@@ -21,5 +23,7 @@ func _draw() -> void:
 	#queue_redraw()
 
 func update() -> void:
-	print('yea')
+	for arc in arcs:
+		if arc.is_length_completed:
+			shape_completed.emit()
 	queue_redraw()

@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcooe8r23h6y8"]
+[gd_scene load_steps=3 format=3 uid="uid://ddy2etyc2u0x8"]
 
-[ext_resource type="PackedScene" uid="uid://phpgl5kxor52" path="res://scenes/skater.tscn" id="1_errlg"]
-[ext_resource type="PackedScene" uid="uid://cepnskqqnl8m1" path="res://scenes/hook.tscn" id="2_bl13t"]
+[ext_resource type="PackedScene" uid="uid://phpgl5kxor52" path="res://scenes/skater/skater.tscn" id="1_errlg"]
+[ext_resource type="PackedScene" uid="uid://cepnskqqnl8m1" path="res://scenes/objects/hook.tscn" id="2_bl13t"]
 
 [node name="Test" type="Node2D"]
 

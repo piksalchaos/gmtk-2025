@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cjgwup5pv12nw"]
 
-[ext_resource type="Script" uid="uid://c51i81ffoffpf" path="res://scenes/levels/level.gd" id="1_377w7"]
-[ext_resource type="PackedScene" uid="uid://ebodycd1qb6e" path="res://scenes/arc_markings.tscn" id="2_bovvr"]
+[ext_resource type="Script" uid="uid://c51i81ffoffpf" path="res://scenes/levels/level_base/level.gd" id="1_377w7"]
+[ext_resource type="PackedScene" uid="uid://ebodycd1qb6e" path="res://scenes/levels/level_base/arc_markings.tscn" id="2_bovvr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_377w7"]
 size = Vector2(20, 648)

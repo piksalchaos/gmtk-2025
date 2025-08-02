@@ -1,8 +1,10 @@
 @tool
 class_name Skater extends CharacterBody2D
 
-const SPEED := 250.0
+const SPEED := 200.0
+const REVOLVE_SPEED := 160.0
 const VECTOR_CHANGE_FACTOR := 250.0
+const ARC_CENTER_OFFSET := Vector2(0, 0)
 
 @onready var direction_arrow: Line2D = $DirectionArrow
 @onready var hook_detector: HookDetector = $HookDetector
@@ -32,7 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if not is_started:
 			is_started = true
 			return
-		var closest_hook := hook_detector.get_closest_hook()
+		var closest_hook := hook_detector.get_closest_hook ()
 		if closest_hook:
 			connect_to_hook(closest_hook)
 	if event.is_action_released("control_skater"):
@@ -50,7 +52,7 @@ func connect_to_hook(hook: Hook) -> void:
 
 func create_new_arc():
 	current_arc = Arc.new()
-	current_arc.center = connected_hook_position
+	current_arc.center = connected_hook_position + ARC_CENTER_OFFSET
 	current_arc.radius = connected_hook_distance
 	var start_angle = (global_position - connected_hook_position).angle()
 	current_arc.start_angle = start_angle
@@ -68,11 +70,11 @@ func _physics_process(delta: float) -> void:
 	if not Engine.is_editor_hint() and is_started:
 		if is_connected_to_hook:
 			hook_connector.set_point_position(1, connected_hook_position - global_position)
-			var angular_velocity = SPEED/connected_hook_distance * delta * (1 if is_rotating_clockwise else -1)
+			var angular_velocity = REVOLVE_SPEED/connected_hook_distance * delta * (1 if is_rotating_clockwise else -1)
 			direction_vector = direction_vector.rotated(angular_velocity)
 			update_arc_length()
 			
-		velocity = direction_vector * SPEED
+		velocity = direction_vector * (REVOLVE_SPEED if is_connected_to_hook else SPEED)
 		direction_arrow.rotation = direction_vector.angle()
 		move_and_slide()
 		check_danger_collisions()

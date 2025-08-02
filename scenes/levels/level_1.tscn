@@ -1,22 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk15a344206i"]
+[gd_scene load_steps=5 format=3 uid="uid://bk15a344206i"]
 
-[ext_resource type="PackedScene" uid="uid://phpgl5kxor52" path="res://scenes/skater.tscn" id="1_6iamk"]
-[ext_resource type="PackedScene" uid="uid://cjgwup5pv12nw" path="res://scenes/levels/level.tscn" id="1_nsrm0"]
-[ext_resource type="PackedScene" uid="uid://cepnskqqnl8m1" path="res://scenes/hook.tscn" id="2_nsrm0"]
+[ext_resource type="PackedScene" uid="uid://phpgl5kxor52" path="res://scenes/skater/skater.tscn" id="1_6iamk"]
+[ext_resource type="PackedScene" uid="uid://cjgwup5pv12nw" path="res://scenes/levels/level_base/level.tscn" id="1_nsrm0"]
+[ext_resource type="PackedScene" uid="uid://cepnskqqnl8m1" path="res://scenes/objects/hook.tscn" id="2_nsrm0"]
+[ext_resource type="PackedScene" uid="uid://b5ldp75afd28g" path="res://scenes/objects/polygon_obstacle.tscn" id="4_x42e6"]
 
 [node name="Level1" instance=ExtResource("1_nsrm0")]
 
 [node name="Skater" parent="." index="2" instance=ExtResource("1_6iamk")]
-position = Vector2(141, 518)
+position = Vector2(181, 324)
 
 [node name="Hook" parent="." index="3" instance=ExtResource("2_nsrm0")]
 position = Vector2(576, 324)
 
 [node name="Label" type="Label" parent="." index="4"]
-offset_left = 68.0
-offset_top = 43.0
-offset_right = 462.0
-offset_bottom = 136.0
+offset_left = 119.0
+offset_top = 99.0
+offset_right = 646.0
+offset_bottom = 269.0
+theme_override_font_sizes/font_size = 20
 text = "Press SPACE to start
 Hold SPACE when near a pole to hook onto it
 Keep holding until you create a complete shape"
+
+[node name="PolygonObstacle" parent="." index="5" instance=ExtResource("4_x42e6")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle" index="0"]
+polygon = PackedVector2Array(1178, -21, 501, -18, 594, 200, 779, 150, 861, 414, 742, 670, 1167, 652, 1179, 354)
+
+[node name="PolygonObstacle2" parent="." index="6" instance=ExtResource("4_x42e6")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle2" index="0"]
+polygon = PackedVector2Array(439, -33, 126, 63, 39, 334, 116, 600, 507, 683, -85, 710, -88, -28)
