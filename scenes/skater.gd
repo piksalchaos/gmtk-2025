@@ -16,6 +16,8 @@ var connected_hook_distance := 0.0
 var is_connected_to_hook := false
 var is_rotating_clockwise := false
 
+signal died
+
 func _ready():
 	if Engine.is_editor_hint(): return
 	rotation = 0
@@ -57,4 +59,10 @@ func _physics_process(delta: float) -> void:
 		velocity = direction_vector * SPEED
 		direction_arrow.rotation = direction_vector.angle()
 		move_and_slide()
-	
+		check_danger_collisions()
+
+func check_danger_collisions():
+	for i in get_slide_collision_count():
+		var collider: PhysicsBody2D = get_slide_collision(i).get_collider()
+		if collider.is_in_group("danger"):
+			died.emit()
