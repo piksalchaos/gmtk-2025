@@ -8,11 +8,8 @@ func _ready() -> void:
 		if child is Skater:
 			skater = child
 			skater.died.connect(restart_level)
-			skater.created_arc.connect(add_new_arc)
-
-func add_new_arc(arc: Arc):
-	arc_markings.arcs.append(arc)
-	print('wow')
+			skater.created_arc.connect(arc_markings.add_arc)
+			skater.updated_arc.connect(arc_markings.update)
 
 func restart_level():
 	if is_inside_tree():

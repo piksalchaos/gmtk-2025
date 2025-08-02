@@ -19,6 +19,7 @@ var current_arc: Arc
 
 signal died
 signal created_arc(arc: Arc)
+signal updated_arc
 
 func _ready():
 	if Engine.is_editor_hint(): return
@@ -69,11 +70,22 @@ func _physics_process(delta: float) -> void:
 			hook_connector.set_point_position(1, connected_hook_position - global_position)
 			var angular_velocity = SPEED/connected_hook_distance * delta * (1 if is_rotating_clockwise else -1)
 			direction_vector = direction_vector.rotated(angular_velocity)
-			current_arc.end_angle = (global_position - connected_hook_position).angle()
+			update_arc_length()
+			
 		velocity = direction_vector * SPEED
 		direction_arrow.rotation = direction_vector.angle()
 		move_and_slide()
 		check_danger_collisions()
+
+func update_arc_length():
+	current_arc.end_angle = (global_position - connected_hook_position).angle()
+	if current_arc.is_length_completed: return
+	var arc_length = abs(current_arc.end_angle-current_arc.start_angle)
+	if arc_length > 0.05 and not current_arc.is_length_started:
+		current_arc.is_length_started = true
+	if arc_length < 0.05 and current_arc.is_length_started:
+		current_arc.is_length_completed = true
+	updated_arc.emit()
 
 func check_danger_collisions():
 	for i in get_slide_collision_count():
