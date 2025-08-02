@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ebodycd1qb6e"]
+
+[ext_resource type="Script" uid="uid://bpynlcnm16gcg" path="res://scenes/arc_markings.gd" id="1_3ukui"]
+
+[node name="ArcMarkings" type="Node2D"]
+script = ExtResource("1_3ukui")

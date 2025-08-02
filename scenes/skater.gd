@@ -8,15 +8,17 @@ const VECTOR_CHANGE_FACTOR := 250.0
 @onready var hook_detector: HookDetector = $HookDetector
 @onready var hook_connector: Line2D = $HookConnector
 
-@export_range(0, 2 * PI) var start_direction_angle := 0.0
+@export_range(0, TAU) var start_direction_angle := 0.0
 @onready var direction_vector := Vector2.RIGHT.rotated(start_direction_angle)
 var is_started := false
 var connected_hook_position := Vector2.ZERO
 var connected_hook_distance := 0.0
 var is_connected_to_hook := false
 var is_rotating_clockwise := false
+var current_arc: Arc
 
 signal died
+signal created_arc(arc: Arc)
 
 func _ready():
 	if Engine.is_editor_hint(): return
@@ -43,6 +45,17 @@ func connect_to_hook(hook: Hook) -> void:
 	var perpendicular_vector = (connected_hook_position - global_position).normalized()
 	is_rotating_clockwise = perpendicular_vector.angle_to(direction_vector) < 0
 	direction_vector = perpendicular_vector.rotated(PI/2 * (-1 if is_rotating_clockwise else 1))
+	create_new_arc()
+
+func create_new_arc():
+	current_arc = Arc.new()
+	current_arc.center = connected_hook_position
+	current_arc.radius = connected_hook_distance
+	var start_angle = (global_position - connected_hook_position).angle()
+	current_arc.start_angle = start_angle
+	current_arc.end_angle = start_angle
+	current_arc.is_clockwise = is_rotating_clockwise
+	created_arc.emit(current_arc)
 
 func disconnect_from_hook() -> void:
 	is_connected_to_hook = false
@@ -56,6 +69,7 @@ func _physics_process(delta: float) -> void:
 			hook_connector.set_point_position(1, connected_hook_position - global_position)
 			var angular_velocity = SPEED/connected_hook_distance * delta * (1 if is_rotating_clockwise else -1)
 			direction_vector = direction_vector.rotated(angular_velocity)
+			current_arc.end_angle = (global_position - connected_hook_position).angle()
 		velocity = direction_vector * SPEED
 		direction_arrow.rotation = direction_vector.angle()
 		move_and_slide()

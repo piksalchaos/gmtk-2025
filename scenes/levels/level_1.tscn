@@ -6,13 +6,13 @@
 
 [node name="Level1" instance=ExtResource("1_nsrm0")]
 
-[node name="Skater" parent="." index="1" instance=ExtResource("1_6iamk")]
-position = Vector2(144, 518)
+[node name="Skater" parent="." index="2" instance=ExtResource("1_6iamk")]
+position = Vector2(141, 518)
 
-[node name="Hook" parent="." index="2" instance=ExtResource("2_nsrm0")]
-position = Vector2(596, 331)
+[node name="Hook" parent="." index="3" instance=ExtResource("2_nsrm0")]
+position = Vector2(576, 324)
 
-[node name="Label" type="Label" parent="." index="3"]
+[node name="Label" type="Label" parent="." index="4"]
 offset_left = 68.0
 offset_top = 43.0
 offset_right = 462.0
