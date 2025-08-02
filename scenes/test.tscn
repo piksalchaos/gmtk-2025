@@ -7,7 +7,7 @@
 
 [node name="Skater" parent="." instance=ExtResource("1_errlg")]
 position = Vector2(82, 545)
-start_direction_angle = 0.0
+start_direction_angle = 5.43
 
 [node name="Hook" parent="." instance=ExtResource("2_bl13t")]
 position = Vector2(594, 435)

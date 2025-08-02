@@ -12,7 +12,10 @@ radius = 300.0
 
 [node name="Skater" type="CharacterBody2D"]
 script = ExtResource("1_gn2w7")
-start_direction_angle = 0.8
+
+[node name="DirectionArrow" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 50, 0)
+width = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, 4)

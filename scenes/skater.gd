@@ -1,8 +1,10 @@
-extends CharacterBody2D
+@tool
+class_name Skater extends CharacterBody2D
 
 const SPEED := 250.0
 const VECTOR_CHANGE_FACTOR := 250.0
 
+@onready var direction_arrow: Line2D = $DirectionArrow
 @onready var hook_detector: HookDetector = $HookDetector
 @onready var hook_connector: Line2D = $HookConnector
 
@@ -14,7 +16,13 @@ var connected_hook_distance := 0.0
 var is_connected_to_hook := false
 var is_rotating_clockwise := false
 
+func _ready():
+	if Engine.is_editor_hint(): return
+	rotation = 0
+	direction_arrow.rotation = start_direction_angle
+
 func _unhandled_input(event: InputEvent) -> void:
+	if Engine.is_editor_hint(): return
 	if event.is_action_pressed("control_skater"):
 		if not is_started:
 			is_started = true
@@ -39,13 +47,14 @@ func disconnect_from_hook() -> void:
 	hook_connector.visible = false
 
 func _physics_process(delta: float) -> void:
-	if not is_started: return
+	if Engine.is_editor_hint():
+		direction_arrow.rotation = start_direction_angle
+	if not Engine.is_editor_hint() and is_started:
+		if is_connected_to_hook:
+			hook_connector.set_point_position(1, connected_hook_position - global_position)
+			var angular_velocity = SPEED/connected_hook_distance * delta * (1 if is_rotating_clockwise else -1)
+			direction_vector = direction_vector.rotated(angular_velocity)
+		velocity = direction_vector * SPEED
+		direction_arrow.rotation = direction_vector.angle()
+		move_and_slide()
 	
-	if is_connected_to_hook:
-		hook_connector.set_point_position(1, connected_hook_position - global_position)
-		var angular_velocity = SPEED/connected_hook_distance * delta * (1 if is_rotating_clockwise else -1)
-		direction_vector = direction_vector.rotated(angular_velocity)
-	
-	velocity = direction_vector * SPEED
-	
-	move_and_slide()
