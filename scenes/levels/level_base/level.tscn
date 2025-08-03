@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c51i81ffoffpf" path="res://scenes/levels/level_base/level.gd" id="1_377w7"]
 [ext_resource type="PackedScene" uid="uid://ebodycd1qb6e" path="res://scenes/levels/level_base/arc_markings.tscn" id="2_bovvr"]
-[ext_resource type="PackedScene" uid="uid://bbdd1tvjgdxdf" path="res://scenes/levels/level_base/hook_container.tscn" id="3_dh6ic"]
+[ext_resource type="PackedScene" uid="uid://bbdd1tvjgdxdf" path="res://scenes/levels/level_base/hook_hints.tscn" id="3_dh6ic"]
 [ext_resource type="PackedScene" uid="uid://cp4flth5k2cad" path="res://scenes/scene_transitioner.tscn" id="4_4yvsi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_377w7"]
@@ -32,7 +32,8 @@ shape = SubResource("RectangleShape2D_bovvr")
 position = Vector2(576, 658)
 shape = SubResource("RectangleShape2D_bovvr")
 
-[node name="HookContainer" parent="." instance=ExtResource("3_dh6ic")]
+[node name="HookHints" parent="." instance=ExtResource("3_dh6ic")]
+z_index = 0
 
 [node name="ArcMarkings" parent="." instance=ExtResource("2_bovvr")]
 

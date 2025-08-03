@@ -17,8 +17,7 @@ func _draw() -> void:
 		var end_angle = arc.end_angle
 		if arc.is_clockwise and end_angle < arc.start_angle: end_angle += TAU
 		if not arc.is_clockwise and end_angle > arc.start_angle: end_angle -= TAU
-		var point_count = arc.radius * abs(end_angle - arc.start_angle) / 15 + 2
-		draw_arc(arc.center + Vector2(), arc.radius, arc.start_angle, end_angle, point_count, Color.WHITE, LINE_WIDTH)
+		draw_arc(arc.center + Vector2(), arc.radius, arc.start_angle, end_angle, 100, Color.WHITE, LINE_WIDTH)
 
 func update() -> void:
 	queue_redraw()

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://phpgl5kxor52" path="res://scenes/skater/skater.tscn" id="1_6iamk"]
 [ext_resource type="PackedScene" uid="uid://cjgwup5pv12nw" path="res://scenes/levels/level_base/level.tscn" id="1_nsrm0"]
-[ext_resource type="PackedScene" uid="uid://cbx2c3pxkk421" path="res://scenes/levels/level_2.tscn" id="2_6761a"]
+[ext_resource type="PackedScene" uid="uid://wbs23ajsvyx1" path="res://scenes/levels/level_2.tscn" id="2_6761a"]
 [ext_resource type="PackedScene" uid="uid://cepnskqqnl8m1" path="res://scenes/objects/hook.tscn" id="2_nsrm0"]
 [ext_resource type="PackedScene" uid="uid://b5ldp75afd28g" path="res://scenes/objects/polygon_obstacle.tscn" id="4_x42e6"]
 
@@ -10,27 +10,34 @@
 next_scene = ExtResource("2_6761a")
 
 [node name="PolygonObstacle" parent="." index="0" instance=ExtResource("4_x42e6")]
+position = Vector2(235, -19)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle" index="0"]
-polygon = PackedVector2Array(1178, -21, 501, -18, 594, 200, 779, 150, 861, 414, 742, 670, 1167, 652, 1179, 354)
+polygon = PackedVector2Array(1178, -21, 501, -18, 553, 247, 701, 125, 802, 129, 881, 411, 710, 706, 1167, 652, 1179, 354)
 
 [node name="PolygonObstacle2" parent="." index="1" instance=ExtResource("4_x42e6")]
+position = Vector2(346, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle2" index="0"]
-polygon = PackedVector2Array(439, -33, 126, 63, 39, 334, 116, 600, 507, 683, -85, 710, -88, -28)
+polygon = PackedVector2Array(439, -33, 147, 73, 76, 338, 163, 590, 507, 683, -422, 698, -404, -40)
 
-[node name="Skater" parent="." index="2" instance=ExtResource("1_6iamk")]
-position = Vector2(185, 367)
+[node name="Hook" parent="." index="2" instance=ExtResource("2_nsrm0")]
+position = Vector2(867, 351)
 
-[node name="Label" type="Label" parent="." index="3"]
-offset_left = 203.0
-offset_top = 38.0
-offset_right = 939.0
-offset_bottom = 208.0
+[node name="Skater" parent="." index="3" instance=ExtResource("1_6iamk")]
+position = Vector2(531, 367)
+
+[node name="Label" type="Label" parent="." index="4"]
+offset_left = 34.0
+offset_top = 216.0
+offset_right = 402.0
+offset_bottom = 553.0
 theme_override_font_sizes/font_size = 24
 text = "Press SPACE to start
-Hold SPACE when near a pole to hook onto it
-Keep holding until you create a complete shape"
 
-[node name="Hook" parent="HookContainer" index="0" instance=ExtResource("2_nsrm0")]
-position = Vector2(576, 324)
+Hold SPACE when near
+a pole to hook onto it
+
+Keep holding until you 
+create a complete shape"
+horizontal_alignment = 1

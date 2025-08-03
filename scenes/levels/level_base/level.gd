@@ -4,7 +4,7 @@ const COMPLETED_CIRCLE = preload("res://scenes/objects/completed_circle.tscn")
 
 @export var next_scene: PackedScene
 @onready var arc_markings: ArcMarkings = $ArcMarkings
-@onready var hook_container: HookContainer = $HookContainer
+@onready var hook_hints: HookHints = $HookHints
 @onready var scene_transitioner: SceneTransitioner = $SceneTransitioner
 var skater: Skater
 
@@ -14,7 +14,7 @@ func _ready() -> void:
 		if child is Skater:
 			skater = child
 			# i think im doing something wrong but the deadline is coming so screw good godot practices
-			hook_container.skater = skater
+			hook_hints.skater = skater
 			skater.died.connect(restart_level)
 			skater.created_arc.connect(arc_markings.add_arc)
 			skater.updated_arc.connect(arc_markings.update)

@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://d027r45cgnqc2" path="res://scenes/objects/completed_circle.gd" id="1_keeie"]
 
 [node name="CompletedCircle" type="Node2D"]
+z_index = 1
 script = ExtResource("1_keeie")

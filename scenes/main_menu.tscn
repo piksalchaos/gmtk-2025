@@ -46,7 +46,6 @@ theme_override_font_sizes/font_size = 48
 text = "BEGIN"
 
 [node name="SceneTransitioner" parent="." instance=ExtResource("3_bqqt6")]
-z_index = 2
 layout_mode = 1
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

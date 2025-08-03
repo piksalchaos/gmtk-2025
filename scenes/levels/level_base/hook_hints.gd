@@ -1,4 +1,4 @@
-class_name HookContainer extends Node2D
+class_name HookHints extends Node2D
 
 const COLOR := Color(0.25, 0.25, 0.25)
 const LINE_WIDTH := 1
