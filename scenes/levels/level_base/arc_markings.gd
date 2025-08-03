@@ -18,9 +18,6 @@ func _draw() -> void:
 		if not arc.is_clockwise and end_angle > arc.start_angle: end_angle -= TAU
 		var point_count = arc.radius * abs(end_angle - arc.start_angle) / 15 + 2
 		draw_arc(arc.center + Vector2(), arc.radius, arc.start_angle, end_angle, point_count, Color.WHITE, LINE_WIDTH, true)
-#
-#func _process(_delta: float) -> void:
-	#queue_redraw()
 
 func update() -> void:
 	for arc in arcs:

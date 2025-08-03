@@ -19,6 +19,7 @@ var is_connected_to_hook := false
 var is_rotating_clockwise := false
 var current_arc: Arc
 
+signal changed_position(new_global_position: Vector2)
 signal died
 signal created_arc(arc: Arc)
 signal updated_arc
@@ -27,6 +28,7 @@ func _ready():
 	if Engine.is_editor_hint(): return
 	rotation = 0
 	direction_arrow.rotation = start_direction_angle
+	changed_position.emit(global_position)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Engine.is_editor_hint(): return
@@ -78,6 +80,7 @@ func _physics_process(delta: float) -> void:
 		direction_arrow.rotation = direction_vector.angle()
 		move_and_slide()
 		check_danger_collisions()
+		changed_position.emit(global_position)
 
 func update_arc_length():
 	current_arc.end_angle = (global_position - connected_hook_position).angle()
