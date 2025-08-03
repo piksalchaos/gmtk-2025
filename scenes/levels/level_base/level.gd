@@ -1,15 +1,16 @@
 extends Node
 
 @onready var arc_markings: ArcMarkings = $ArcMarkings
-@onready var hook_hints: Node2D = $HookHints
+@onready var hook_container: HookContainer = $HookContainer
 var skater: Skater
 
 func _ready() -> void:
+	arc_markings.shape_completed.connect()
 	for child in get_children():
 		if child is Skater:
 			skater = child
-			hook_hints.update_skater_position(skater.global_position)
-			skater.changed_position.connect(hook_hints.update_skater_position)
+			# i think im doing something wrong but the deadline is coming so screw good godot practices
+			hook_container.skater = skater
 			skater.died.connect(restart_level)
 			skater.created_arc.connect(arc_markings.add_arc)
 			skater.updated_arc.connect(arc_markings.update)

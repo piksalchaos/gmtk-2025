@@ -26,7 +26,6 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 [global_group]
 
 danger=""
-hooks_in_range=""
 
 [input]
 

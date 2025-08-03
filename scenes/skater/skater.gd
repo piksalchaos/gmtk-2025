@@ -13,6 +13,7 @@ const ARC_CENTER_OFFSET := Vector2(0, 0)
 @export_range(0, TAU) var start_direction_angle := 0.0
 @onready var direction_vector := Vector2.RIGHT.rotated(start_direction_angle)
 var is_started := false
+var closest_hook: Hook
 var connected_hook_position := Vector2.ZERO
 var connected_hook_distance := 0.0
 var is_connected_to_hook := false
@@ -21,6 +22,8 @@ var current_arc: Arc
 
 signal changed_position(new_global_position: Vector2)
 signal died
+#signal hook_connected(hook_index: int)
+#signal hook_disconnected()
 signal created_arc(arc: Arc)
 signal updated_arc
 
@@ -36,13 +39,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		if not is_started:
 			is_started = true
 			return
-		var closest_hook := hook_detector.get_closest_hook ()
 		if closest_hook:
 			connect_to_hook(closest_hook)
 	if event.is_action_released("control_skater"):
 		disconnect_from_hook()
 
 func connect_to_hook(hook: Hook) -> void:
+	#hook_connected.emit(hook.get_index())
 	is_connected_to_hook = true
 	hook_connector.visible = true
 	connected_hook_position = hook.global_position
@@ -63,6 +66,7 @@ func create_new_arc():
 	created_arc.emit(current_arc)
 
 func disconnect_from_hook() -> void:
+	#hook_disconnected.emit()
 	is_connected_to_hook = false
 	hook_connector.visible = false
 
@@ -70,6 +74,7 @@ func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		direction_arrow.rotation = start_direction_angle
 	if not Engine.is_editor_hint() and is_started:
+		closest_hook = hook_detector.get_closest_hook()
 		if is_connected_to_hook:
 			hook_connector.set_point_position(1, connected_hook_position - global_position)
 			var angular_velocity = REVOLVE_SPEED/connected_hook_distance * delta * (1 if is_rotating_clockwise else -1)
