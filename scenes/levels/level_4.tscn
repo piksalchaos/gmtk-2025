@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmf2wvcln637k"]
+
+[ext_resource type="PackedScene" uid="uid://cjgwup5pv12nw" path="res://scenes/levels/level_base/level.tscn" id="1_06474"]
+[ext_resource type="PackedScene" uid="uid://phpgl5kxor52" path="res://scenes/skater/skater.tscn" id="2_vmkp1"]
+
+[node name="Level4" instance=ExtResource("1_06474")]
+
+[node name="Skater" parent="." index="4" instance=ExtResource("2_vmkp1")]
+position = Vector2(592, 497)
