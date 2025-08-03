@@ -7,8 +7,8 @@ func _draw() -> void:
 	var hook_position = skater.closest_hook.global_position
 	var skater_position = skater.global_position
 	var radius = hook_position.distance_to(skater_position)
-	draw_circle(hook_position, radius, Color("White", 0.1), false, 1, true)
-	draw_line(hook_position, skater_position, Color("White", 0.1), 1, true)
+	draw_circle(hook_position, radius, Color("White", 0.2), false, 1)
+	draw_line(hook_position, skater_position, Color("White", 0.2), 1)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void: 
 	queue_redraw() # THIS IS BAD CODE IDC

@@ -24,11 +24,11 @@ polygon = PackedVector2Array(1178, -21, 501, -18, 594, 200, 779, 150, 861, 414, 
 polygon = PackedVector2Array(439, -33, 126, 63, 39, 334, 116, 600, 507, 683, -85, 710, -88, -28)
 
 [node name="Label" type="Label" parent="." index="6"]
-offset_left = 119.0
-offset_top = 99.0
-offset_right = 646.0
-offset_bottom = 269.0
-theme_override_font_sizes/font_size = 20
+offset_left = 203.0
+offset_top = 38.0
+offset_right = 939.0
+offset_bottom = 208.0
+theme_override_font_sizes/font_size = 24
 text = "Press SPACE to start
 Hold SPACE when near a pole to hook onto it
 Keep holding until you create a complete shape"

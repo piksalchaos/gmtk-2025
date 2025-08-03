@@ -9,10 +9,12 @@ const ARC_CENTER_OFFSET := Vector2(0, 0)
 @onready var direction_arrow: Line2D = $DirectionArrow
 @onready var hook_detector: HookDetector = $HookDetector
 @onready var hook_connector: Line2D = $HookConnector
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @export_range(0, TAU) var start_direction_angle := 0.0
 @onready var direction_vector := Vector2.RIGHT.rotated(start_direction_angle)
 var is_started := false
+var is_disabled := false
 var closest_hook: Hook
 var connected_hook_position := Vector2.ZERO
 var connected_hook_distance := 0.0
@@ -34,10 +36,11 @@ func _ready():
 	changed_position.emit(global_position)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Engine.is_editor_hint(): return
+	if Engine.is_editor_hint() or is_disabled: return
 	if event.is_action_pressed("control_skater"):
 		if not is_started:
 			is_started = true
+			animated_sprite_2d.animation = "skate"
 			return
 		if closest_hook:
 			connect_to_hook(closest_hook)
@@ -73,7 +76,7 @@ func disconnect_from_hook() -> void:
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		direction_arrow.rotation = start_direction_angle
-	if not Engine.is_editor_hint() and is_started:
+	if not Engine.is_editor_hint() and is_started and not is_disabled:
 		closest_hook = hook_detector.get_closest_hook()
 		if is_connected_to_hook:
 			hook_connector.set_point_position(1, connected_hook_position - global_position)
@@ -86,6 +89,8 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		check_danger_collisions()
 		changed_position.emit(global_position)
+		
+		animated_sprite_2d.flip_h = velocity.x < 0
 
 func update_arc_length():
 	current_arc.end_angle = (global_position - connected_hook_position).angle()

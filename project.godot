@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="GMTK-2025"
-run/main_scene="uid://bk15a344206i"
+run/main_scene="uid://81d8lua8wabx"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
@@ -26,6 +26,11 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 [global_group]
 
 danger=""
+
+[gui]
+
+theme/custom_font="uid://dxa0rbbya5dys"
+theme/default_font_antialiasing=0
 
 [input]
 
@@ -38,6 +43,7 @@ control_skater={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)

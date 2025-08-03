@@ -10,4 +10,4 @@ func _ready() -> void:
 func _draw() -> void:
 	var polygon = collision_polygon.polygon.duplicate()
 	polygon.push_back(polygon[0])
-	draw_polyline(polygon, Color.RED, 2, true)
+	draw_polyline(polygon, Color.RED, 2)
