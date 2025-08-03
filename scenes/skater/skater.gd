@@ -79,7 +79,6 @@ func _physics_process(delta: float) -> void:
 	if not Engine.is_editor_hint() and is_started and not is_disabled:
 		closest_hook = hook_detector.get_closest_hook()
 		if is_connected_to_hook:
-			hook_connector.set_point_position(1, connected_hook_position - global_position)
 			var angular_velocity = REVOLVE_SPEED/connected_hook_distance * delta * (1 if is_rotating_clockwise else -1)
 			direction_vector = direction_vector.rotated(angular_velocity)
 			update_arc_length()
@@ -90,6 +89,8 @@ func _physics_process(delta: float) -> void:
 		check_danger_collisions()
 		changed_position.emit(global_position)
 		
+		if is_connected_to_hook:
+			hook_connector.set_point_position(1, connected_hook_position - global_position)
 		animated_sprite_2d.flip_h = velocity.x < 0
 
 func update_arc_length():

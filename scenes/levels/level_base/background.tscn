@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://kobqpd0hlc21"]
+
+[ext_resource type="Script" uid="uid://bgavatht8bhf" path="res://scenes/levels/level_base/background.gd" id="1_xc5f6"]
+
+[node name="Background" type="Node2D"]
+z_index = -1
+script = ExtResource("1_xc5f6")

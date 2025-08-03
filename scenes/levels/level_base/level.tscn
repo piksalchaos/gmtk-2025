@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjgwup5pv12nw"]
+[gd_scene load_steps=8 format=3 uid="uid://cjgwup5pv12nw"]
 
 [ext_resource type="Script" uid="uid://c51i81ffoffpf" path="res://scenes/levels/level_base/level.gd" id="1_377w7"]
 [ext_resource type="PackedScene" uid="uid://ebodycd1qb6e" path="res://scenes/levels/level_base/arc_markings.tscn" id="2_bovvr"]
+[ext_resource type="PackedScene" uid="uid://kobqpd0hlc21" path="res://scenes/levels/level_base/background.tscn" id="2_k3gyj"]
 [ext_resource type="PackedScene" uid="uid://bbdd1tvjgdxdf" path="res://scenes/levels/level_base/hook_hints.tscn" id="3_dh6ic"]
 [ext_resource type="PackedScene" uid="uid://cp4flth5k2cad" path="res://scenes/scene_transitioner.tscn" id="4_4yvsi"]
 
@@ -13,6 +14,8 @@ size = Vector2(1152, 20)
 
 [node name="Level" type="Node"]
 script = ExtResource("1_377w7")
+
+[node name="Background" parent="." instance=ExtResource("2_k3gyj")]
 
 [node name="Boundaries" type="StaticBody2D" parent="." groups=["danger"]]
 

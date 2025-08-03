@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://df02mnjoalb1m"]
+
+[ext_resource type="AudioStream" uid="uid://ds5wlx483l2ej" path="res://assets/sounds/Magic Forest.mp3" id="1_jxdhu"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_jxdhu")
+volume_db = -4.018
+autoplay = true
+parameters/looping = true

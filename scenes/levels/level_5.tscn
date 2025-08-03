@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmf2wvcln637k"]
+[gd_scene load_steps=6 format=3 uid="uid://dmf2wvcln637k"]
 
 [ext_resource type="PackedScene" uid="uid://cjgwup5pv12nw" path="res://scenes/levels/level_base/level.tscn" id="1_laj7o"]
 [ext_resource type="PackedScene" uid="uid://phpgl5kxor52" path="res://scenes/skater/skater.tscn" id="2_fi56y"]
+[ext_resource type="PackedScene" uid="uid://bnbfpeqanl7sl" path="res://scenes/levels/level_end.tscn" id="2_hldbq"]
 [ext_resource type="PackedScene" uid="uid://cepnskqqnl8m1" path="res://scenes/objects/hook.tscn" id="3_hldbq"]
 [ext_resource type="PackedScene" uid="uid://b5ldp75afd28g" path="res://scenes/objects/polygon_obstacle.tscn" id="4_fsnos"]
 
 [node name="Level5" instance=ExtResource("1_laj7o")]
+next_scene = ExtResource("2_hldbq")
 
 [node name="Skater" parent="." index="5" instance=ExtResource("2_fi56y")]
 position = Vector2(321, 115)

@@ -63,6 +63,7 @@ default_color = Color(0.33476, 0.312425, 0.689033, 1)
 
 [node name="HookConnector" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 0)
+width = 2.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2

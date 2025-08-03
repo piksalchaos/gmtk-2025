@@ -11,6 +11,7 @@ func _ready() -> void:
 
 func _draw() -> void:
 	var polygon = collision_polygon.polygon.duplicate()
+	draw_colored_polygon(polygon, Color.BLACK)
 	polygon.push_back(polygon[0])
 	for i in polygon.size():
 		polygon[i] += Vector2((randf()-0.5)*JIGGLE_RANGE, (randf()-0.5)*JIGGLE_RANGE)
