@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnbfpeqanl7sl"]
+
+[ext_resource type="PackedScene" uid="uid://cjgwup5pv12nw" path="res://scenes/levels/level_base/level.tscn" id="1_m2neq"]
+[ext_resource type="PackedScene" uid="uid://phpgl5kxor52" path="res://scenes/skater/skater.tscn" id="2_xpf06"]
+[ext_resource type="PackedScene" uid="uid://cepnskqqnl8m1" path="res://scenes/objects/hook.tscn" id="3_ueqy5"]
+
+[node name="Level5" instance=ExtResource("1_m2neq")]
+
+[node name="Skater" parent="." index="5" instance=ExtResource("2_xpf06")]
+position = Vector2(117, 324)
+
+[node name="Hook2" parent="." index="6" instance=ExtResource("3_ueqy5")]
+position = Vector2(720, 324)

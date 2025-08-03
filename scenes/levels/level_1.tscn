@@ -25,19 +25,19 @@ polygon = PackedVector2Array(439, -33, 147, 73, 76, 338, 163, 590, 507, 683, -42
 position = Vector2(867, 351)
 
 [node name="Skater" parent="." index="3" instance=ExtResource("1_6iamk")]
-position = Vector2(531, 367)
+position = Vector2(548, 406)
 
 [node name="Label" type="Label" parent="." index="4"]
-offset_left = 34.0
-offset_top = 216.0
-offset_right = 402.0
-offset_bottom = 553.0
+offset_left = 10.0
+offset_top = 55.0
+offset_right = 458.0
+offset_bottom = 392.0
 theme_override_font_sizes/font_size = 24
-text = "Press SPACE to start
+text = "Press SPACE to start moving
 
-Hold SPACE when near
+Press & hold SPACE when near
 a pole to hook onto it
 
 Keep holding until you 
-create a complete shape"
+create a complete circle"
 horizontal_alignment = 1

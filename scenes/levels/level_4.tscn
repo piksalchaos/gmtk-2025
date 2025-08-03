@@ -1,9 +1,64 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmf2wvcln637k"]
+[gd_scene load_steps=6 format=3 uid="uid://bwc5ulau7np47"]
 
 [ext_resource type="PackedScene" uid="uid://cjgwup5pv12nw" path="res://scenes/levels/level_base/level.tscn" id="1_06474"]
+[ext_resource type="PackedScene" uid="uid://dmf2wvcln637k" path="res://scenes/levels/level_5.tscn" id="2_anwe6"]
 [ext_resource type="PackedScene" uid="uid://phpgl5kxor52" path="res://scenes/skater/skater.tscn" id="2_vmkp1"]
+[ext_resource type="PackedScene" uid="uid://cepnskqqnl8m1" path="res://scenes/objects/hook.tscn" id="3_w6h2s"]
+[ext_resource type="PackedScene" uid="uid://b5ldp75afd28g" path="res://scenes/objects/polygon_obstacle.tscn" id="4_ogj6a"]
 
 [node name="Level4" instance=ExtResource("1_06474")]
+next_scene = ExtResource("2_anwe6")
 
-[node name="Skater" parent="." index="4" instance=ExtResource("2_vmkp1")]
-position = Vector2(592, 497)
+[node name="Skater" parent="." index="5" instance=ExtResource("2_vmkp1")]
+position = Vector2(490, 511)
+
+[node name="Hooks" type="Node2D" parent="." index="6"]
+position = Vector2(-86, 187)
+
+[node name="Hook" parent="Hooks" index="0" instance=ExtResource("3_w6h2s")]
+position = Vector2(805, 292)
+
+[node name="Hook2" parent="Hooks" index="1" instance=ExtResource("3_w6h2s")]
+position = Vector2(312, 292)
+
+[node name="Hook3" parent="Hooks" index="2" instance=ExtResource("3_w6h2s")]
+position = Vector2(873, -107)
+
+[node name="Hook4" parent="Hooks" index="3" instance=ExtResource("3_w6h2s")]
+position = Vector2(628, 4)
+
+[node name="PolygonObstacle" parent="." index="7" instance=ExtResource("4_ogj6a")]
+position = Vector2(-86, 187)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle" index="1"]
+polygon = PackedVector2Array(695, 291, 612, 267, 554, 272, 517, 328, 572, 370, 616, 377, 675, 357, 610, 427, 542, 431, 460, 374, 468, 266, 521, 214, 621, 212)
+
+[node name="PolygonObstacle2" parent="." index="8" instance=ExtResource("4_ogj6a")]
+position = Vector2(-86, 187)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle2" index="1"]
+polygon = PackedVector2Array(827, 293, 936, 251, 992, 293, 929, 347)
+
+[node name="PolygonObstacle3" parent="." index="9" instance=ExtResource("4_ogj6a")]
+position = Vector2(-86, 187)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle3" index="1"]
+polygon = PackedVector2Array(807, 116, 860, 82, 804, 44, 763, 75)
+
+[node name="PolygonObstacle4" parent="." index="10" instance=ExtResource("4_ogj6a")]
+position = Vector2(-86, 187)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle4" index="1"]
+polygon = PackedVector2Array(661, -195, 816, -155, 870, -124, 943, -179, 1063, -84, 1153, 82, 1149, 316, 1049, 424, 767, 505, 1278, 509, 1373, -241)
+
+[node name="PolygonObstacle5" parent="." index="11" instance=ExtResource("4_ogj6a")]
+position = Vector2(-86, 187)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle5" index="1"]
+polygon = PackedVector2Array(621, 39, 589, 183, 719, 135)
+
+[node name="PolygonObstacle6" parent="." index="12" instance=ExtResource("4_ogj6a")]
+position = Vector2(-86, 187)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle6" index="1"]
+polygon = PackedVector2Array(507, -203, 67, -207, 70, 474, 438, 471, 190, 409, 143, 298, 195, 130, 354, 97, 455, 13, 521, -142, 606, -199)

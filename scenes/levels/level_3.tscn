@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbx2c3pxkk421"]
+[gd_scene load_steps=6 format=3 uid="uid://cbx2c3pxkk421"]
 
 [ext_resource type="PackedScene" uid="uid://cjgwup5pv12nw" path="res://scenes/levels/level_base/level.tscn" id="1_0qepi"]
 [ext_resource type="PackedScene" uid="uid://b5ldp75afd28g" path="res://scenes/objects/polygon_obstacle.tscn" id="2_fmg3e"]
+[ext_resource type="PackedScene" uid="uid://bwc5ulau7np47" path="res://scenes/levels/level_4.tscn" id="2_ftfob"]
 [ext_resource type="PackedScene" uid="uid://cepnskqqnl8m1" path="res://scenes/objects/hook.tscn" id="3_ftfob"]
 [ext_resource type="PackedScene" uid="uid://phpgl5kxor52" path="res://scenes/skater/skater.tscn" id="4_fkk1g"]
 
 [node name="Level3" instance=ExtResource("1_0qepi")]
+next_scene = ExtResource("2_ftfob")
 
 [node name="HookContainer#Hook" parent="." index="0" instance=ExtResource("3_ftfob")]
 position = Vector2(729, 497)

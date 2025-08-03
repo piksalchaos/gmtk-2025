@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://phpgl5kxor52"]
+[gd_scene load_steps=12 format=3 uid="uid://phpgl5kxor52"]
 
 [ext_resource type="Script" uid="uid://cdhlnc4twt1hu" path="res://scenes/skater/skater.gd" id="1_gn2w7"]
 [ext_resource type="Texture2D" uid="uid://14e0vgupxm53" path="res://assets/images/skater-Sheet.png" id="2_rsnj3"]
 [ext_resource type="Script" uid="uid://cexiveg4w4xnh" path="res://scenes/skater/hook_detector.gd" id="3_3xg2h"]
+[ext_resource type="Script" uid="uid://yo32jxiga4se" path="res://scenes/skater/hitbox.gd" id="3_rsnj3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uxldk"]
 atlas = ExtResource("2_rsnj3")
@@ -46,7 +47,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3xg2h"]
-radius = 8.0
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gn2w7"]
 radius = 220.0
@@ -71,8 +72,10 @@ animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.0399701
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+z_index = 1
 shape = SubResource("CircleShape2D_3xg2h")
+script = ExtResource("3_rsnj3")
 
 [node name="HookDetector" type="Area2D" parent="."]
 visible = false

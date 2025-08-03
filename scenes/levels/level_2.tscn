@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cepnskqqnl8m1" path="res://scenes/objects/hook.tscn" id="3_fiq81"]
 [ext_resource type="PackedScene" uid="uid://b5ldp75afd28g" path="res://scenes/objects/polygon_obstacle.tscn" id="4_fiq81"]
 
-[node name="Level1" instance=ExtResource("1_j2425")]
+[node name="Level2" instance=ExtResource("1_j2425")]
 next_scene = ExtResource("2_l37oo")
 
 [node name="Skater" parent="." index="4" instance=ExtResource("2_ra442")]

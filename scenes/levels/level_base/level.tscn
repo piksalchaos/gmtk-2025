@@ -38,3 +38,8 @@ z_index = 0
 [node name="ArcMarkings" parent="." instance=ExtResource("2_bovvr")]
 
 [node name="SceneTransitioner" parent="." instance=ExtResource("4_4yvsi")]
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648, 0, 0)
+width = 2.0
+default_color = Color(0.384477, 0.384477, 0.384477, 1)

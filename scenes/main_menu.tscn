@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cle7cc11hkq5m"]
+[gd_scene load_steps=5 format=3 uid="uid://cle7cc11hkq5m"]
 
 [ext_resource type="Script" uid="uid://dwxg85pkv0y4" path="res://scenes/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://yfiwb1ery83m" path="res://assets/images/title.png" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://cp4flth5k2cad" path="res://scenes/scene_transitioner.tscn" id="3_bqqt6"]
+[ext_resource type="PackedScene" uid="uid://b5ldp75afd28g" path="res://scenes/objects/polygon_obstacle.tscn" id="4_wu84c"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -47,5 +48,15 @@ text = "BEGIN"
 
 [node name="SceneTransitioner" parent="." instance=ExtResource("3_bqqt6")]
 layout_mode = 1
+
+[node name="PolygonObstacle" parent="." instance=ExtResource("4_wu84c")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle"]
+polygon = PackedVector2Array(-178, 399, 1, 914, 1223, 808, 1228, 244, 1080, 529, 899, 660, 535, 711, 228, 601, 54, 533, -48, 161)
+
+[node name="PolygonObstacle2" parent="." instance=ExtResource("4_wu84c")]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="PolygonObstacle2"]
+polygon = PackedVector2Array(-15, -138, -49, 260, 59, 114, 172, 23, 585, -53, 926, 27, 1116, 149, 1180, 276, 1187, -199)
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
