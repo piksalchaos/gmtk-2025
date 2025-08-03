@@ -46,7 +46,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3xg2h"]
-radius = 5.0
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gn2w7"]
 radius = 220.0
@@ -62,12 +62,11 @@ width = 3.0
 points = PackedVector2Array(0, 0, 0, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 1
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_3sp3h")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.846978
+frame_progress = 0.0399701
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3xg2h")

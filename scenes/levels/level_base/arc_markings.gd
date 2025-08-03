@@ -19,9 +19,6 @@ func _draw() -> void:
 		if not arc.is_clockwise and end_angle > arc.start_angle: end_angle -= TAU
 		var point_count = arc.radius * abs(end_angle - arc.start_angle) / 15 + 2
 		draw_arc(arc.center + Vector2(), arc.radius, arc.start_angle, end_angle, point_count, Color.WHITE, LINE_WIDTH)
-	#if is_circle_completed:
-		#draw_circle(circle_center, circle_radius*shape_scale, Color.BLACK)
-		#draw_circle(circle_center, circle_radius*shape_scale, Color.WHITE, false, LINE_WIDTH)
 
 func update() -> void:
 	queue_redraw()
@@ -30,19 +27,6 @@ func update() -> void:
 		if arc.is_length_completed:
 			is_shape_completed = true
 			circle_completed.emit(arc.center, arc.radius)
-			#circle_center = arc.center
-			#circle_radius = arc.radius
-			#start_completed_shape_animation()
-
-#func _process(_delta: float) -> void:
-	#queue_redraw()
-	#if is_circle_completed: return
-	#for arc in arcs:
-		#if arc.is_length_completed:
-			#is_circle_completed = true
-			#circle_center = arc.center
-			#circle_radius = arc.radius
-			#start_completed_shape_animation()
 
 func start_completed_shape_animation():
 	var tween = get_tree().create_tween()

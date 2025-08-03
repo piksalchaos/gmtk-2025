@@ -7,6 +7,32 @@
 
 [node name="Level2" instance=ExtResource("1_j2425")]
 
+[node name="PolygonObstacle" parent="." index="0" instance=ExtResource("4_fiq81")]
+position = Vector2(251, 173)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle" index="0"]
+polygon = PackedVector2Array(545, 273, 601, 288, 616, 325, 576, 384, 543, 380, 473, 421, 372, 345, 426, 176, 356, 274, 323, 372, 474, 478, 647, 374, 643, 244, 558, 188, 523, 197, 493, 279, 498, 312)
+
+[node name="PolygonObstacle2" parent="." index="1" instance=ExtResource("4_fiq81")]
+position = Vector2(-151, 27)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle2" index="0"]
+polygon = PackedVector2Array(938, 121, 852, 147, 862, 212, 874, 170)
+
+[node name="PolygonObstacle3" parent="." index="2" instance=ExtResource("4_fiq81")]
+position = Vector2(-151, 27)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle3" index="0"]
+position = Vector2(7, 67)
+rotation = -0.0882224
+polygon = PackedVector2Array(982.359, 277.633, 1127.92, 232.282, 1155.35, 81.1107, 990.597, -19.7975, 849, 38, 1011, 44, 1061, 107, 1060.46, 189.17)
+
+[node name="PolygonObstacle4" parent="." index="3" instance=ExtResource("4_fiq81")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle4" index="0"]
+position = Vector2(-4, -5)
+polygon = PackedVector2Array(236, 150, 297, -67, 199, -73)
+
 [node name="Hook" parent="HookContainer" index="0" instance=ExtResource("3_fiq81")]
 position = Vector2(729, 497)
 
@@ -19,32 +45,6 @@ position = Vector2(232, 167)
 [node name="Hook4" parent="HookContainer" index="3" instance=ExtResource("3_fiq81")]
 position = Vector2(300, 461)
 
-[node name="Skater" parent="." index="3" instance=ExtResource("2_ra442")]
+[node name="Skater" parent="." index="7" instance=ExtResource("2_ra442")]
 position = Vector2(818, 505)
 start_direction_angle = 3.142
-
-[node name="PolygonObstacle" parent="." index="4" instance=ExtResource("4_fiq81")]
-position = Vector2(251, 173)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle" index="0"]
-polygon = PackedVector2Array(545, 273, 601, 288, 616, 325, 576, 384, 543, 380, 473, 421, 372, 345, 426, 176, 356, 274, 323, 372, 474, 478, 647, 374, 643, 244, 558, 188, 523, 197, 493, 279, 498, 312)
-
-[node name="PolygonObstacle2" parent="." index="5" instance=ExtResource("4_fiq81")]
-position = Vector2(-151, 27)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle2" index="0"]
-polygon = PackedVector2Array(938, 121, 852, 147, 862, 212, 874, 170)
-
-[node name="PolygonObstacle3" parent="." index="6" instance=ExtResource("4_fiq81")]
-position = Vector2(-151, 27)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle3" index="0"]
-position = Vector2(7, 67)
-rotation = -0.0882224
-polygon = PackedVector2Array(982.359, 277.633, 1127.92, 232.282, 1155.35, 81.1107, 990.597, -19.7975, 849, 38, 1011, 44, 1061, 107, 1060.46, 189.17)
-
-[node name="PolygonObstacle4" parent="." index="7" instance=ExtResource("4_fiq81")]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle4" index="0"]
-position = Vector2(-4, -5)
-polygon = PackedVector2Array(236, 150, 297, -67, 199, -73)

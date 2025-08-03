@@ -31,6 +31,6 @@ shape = SubResource("RectangleShape2D_bovvr")
 position = Vector2(576, 658)
 shape = SubResource("RectangleShape2D_bovvr")
 
-[node name="ArcMarkings" parent="." instance=ExtResource("2_bovvr")]
-
 [node name="HookContainer" parent="." instance=ExtResource("3_dh6ic")]
+
+[node name="ArcMarkings" parent="." instance=ExtResource("2_bovvr")]
