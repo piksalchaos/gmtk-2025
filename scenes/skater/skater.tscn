@@ -56,12 +56,13 @@ script = ExtResource("1_gn2w7")
 
 [node name="DirectionArrow" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 50, 0)
-width = 3.0
+width = 1.0
 
 [node name="HookConnector" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_3sp3h")
 animation = &"idle"

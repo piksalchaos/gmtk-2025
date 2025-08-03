@@ -11,7 +11,7 @@
 position = Vector2(251, 173)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolygonObstacle" index="0"]
-polygon = PackedVector2Array(545, 273, 601, 288, 616, 325, 576, 384, 543, 380, 473, 421, 372, 345, 426, 176, 356, 274, 323, 372, 474, 478, 647, 374, 643, 244, 558, 188, 523, 197, 493, 279, 498, 312)
+polygon = PackedVector2Array(609, 247, 674, 266, 685, 348, 602, 389, 543, 380, 473, 421, 372, 345, 426, 176, 356, 274, 323, 372, 474, 478, 747, 369, 742, 202, 635, 183, 523, 197, 493, 279, 498, 312)
 
 [node name="PolygonObstacle2" parent="." index="1" instance=ExtResource("4_fiq81")]
 position = Vector2(-151, 27)
@@ -46,5 +46,5 @@ position = Vector2(232, 167)
 position = Vector2(300, 461)
 
 [node name="Skater" parent="." index="7" instance=ExtResource("2_ra442")]
-position = Vector2(818, 505)
+position = Vector2(895, 501)
 start_direction_angle = 3.142

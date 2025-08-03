@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjgwup5pv12nw"]
+[gd_scene load_steps=7 format=3 uid="uid://cjgwup5pv12nw"]
 
 [ext_resource type="Script" uid="uid://c51i81ffoffpf" path="res://scenes/levels/level_base/level.gd" id="1_377w7"]
 [ext_resource type="PackedScene" uid="uid://ebodycd1qb6e" path="res://scenes/levels/level_base/arc_markings.tscn" id="2_bovvr"]
 [ext_resource type="PackedScene" uid="uid://bbdd1tvjgdxdf" path="res://scenes/levels/level_base/hook_container.tscn" id="3_dh6ic"]
+[ext_resource type="PackedScene" uid="uid://cp4flth5k2cad" path="res://scenes/scene_transitioner.tscn" id="4_4yvsi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_377w7"]
 size = Vector2(20, 648)
@@ -34,3 +35,5 @@ shape = SubResource("RectangleShape2D_bovvr")
 [node name="HookContainer" parent="." instance=ExtResource("3_dh6ic")]
 
 [node name="ArcMarkings" parent="." instance=ExtResource("2_bovvr")]
+
+[node name="SceneTransitioner" parent="." instance=ExtResource("4_4yvsi")]

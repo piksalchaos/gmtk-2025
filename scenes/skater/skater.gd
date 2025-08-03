@@ -1,7 +1,7 @@
 @tool
 class_name Skater extends CharacterBody2D
 
-const SPEED := 200.0
+const SPEED := 160.0
 const REVOLVE_SPEED := 160.0
 const VECTOR_CHANGE_FACTOR := 250.0
 const ARC_CENTER_OFFSET := Vector2(0, 0)

@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk15a344206i"]
+[gd_scene load_steps=6 format=3 uid="uid://bk15a344206i"]
 
 [ext_resource type="PackedScene" uid="uid://phpgl5kxor52" path="res://scenes/skater/skater.tscn" id="1_6iamk"]
 [ext_resource type="PackedScene" uid="uid://cjgwup5pv12nw" path="res://scenes/levels/level_base/level.tscn" id="1_nsrm0"]
+[ext_resource type="PackedScene" uid="uid://cbx2c3pxkk421" path="res://scenes/levels/level_2.tscn" id="2_6761a"]
 [ext_resource type="PackedScene" uid="uid://cepnskqqnl8m1" path="res://scenes/objects/hook.tscn" id="2_nsrm0"]
 [ext_resource type="PackedScene" uid="uid://b5ldp75afd28g" path="res://scenes/objects/polygon_obstacle.tscn" id="4_x42e6"]
 
 [node name="Level1" instance=ExtResource("1_nsrm0")]
+next_scene = ExtResource("2_6761a")
 
 [node name="PolygonObstacle" parent="." index="0" instance=ExtResource("4_x42e6")]
 
