@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Magic Forest.mp3-574103b64f7764d827c604387c36
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
